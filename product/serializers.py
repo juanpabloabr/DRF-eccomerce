@@ -4,6 +4,9 @@ from .models import Supplier, Category, Review, Product
 
 class SupplierSerializer(serializers.ModelSerializer):
 
+    #Needs to fix Relationship
+    products = serializers.PrimaryKeyRelatedField(many=True,read_only=True)
+
     class Meta:
 
         model = Supplier
@@ -11,6 +14,7 @@ class SupplierSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'created',
+            'products',
             )
 
 
