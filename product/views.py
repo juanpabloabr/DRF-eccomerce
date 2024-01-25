@@ -1,3 +1,19 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import (
+    Supplier,
+    Category,
+    Product,
+    Review,
+)
+
+from .serializers import (
+    SupplierSerializer,
+    CategorySerializer,
+    ProductSerializer,
+    ReviewSerializer,
+)
+
+
+
+
