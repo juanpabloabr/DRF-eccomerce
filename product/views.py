@@ -1,5 +1,8 @@
 from rest_framework import viewsets
 
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
 from .models import (
     Supplier,
     Category,
@@ -26,6 +29,12 @@ class CategoryAPIView(viewsets.ModelViewSet):
 class ProductAPIView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+
+    @action(detail=True, methods=['get'])
+    def reviews(self, request, pk=None):
+        product = self.get_object()
+        serializer = ReviewSerializer(product.reviews.all(), many=True)
+        return Response(serializer.data)
 
 class ReviewAPIView(viewsets.ModelViewSet):
     queryset = Review.objects.all()

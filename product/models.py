@@ -47,7 +47,7 @@ class Product(Base):
 
 
 class Review(Base):
-    product = models.ForeignKey(Product,related_name='products',on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,related_name='reviews',on_delete=models.CASCADE)
     user_name = models.CharField(max_length=100)
     email = models.EmailField()
     review = models.TextField(blank=True,default='')
