@@ -35,6 +35,19 @@ class ProductAPIView(viewsets.ModelViewSet):
         product = self.get_object()
         serializer = ReviewSerializer(product.reviews.all(), many=True)
         return Response(serializer.data)
+    
+    # Needs to check if filter is working
+    @action(
+            methods=['get'],
+            detail=False,
+            url_path=r'category/(?P<category>\w+)/all',
+            url_name='all',
+    )
+    def listProductByCategory(self, request, category=None):
+        serializer = ProductSerializer(
+            self.queryset.filter(category__name=category), many=True,
+        )
+        return Response(serializer.data)
 
 class ReviewAPIView(viewsets.ModelViewSet):
     queryset = Review.objects.all()
