@@ -34,6 +34,7 @@ class Product(Base):
     supplier = models.ForeignKey(Supplier,related_name='Suppliers',on_delete=models.CASCADE)
     category = models.ForeignKey(Category,related_name='Categories',on_delete=models.CASCADE)
     description = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=6,decimal_places=2,null=True)
     SKU = models.CharField(max_length=50, null=True)
 
     class Meta:

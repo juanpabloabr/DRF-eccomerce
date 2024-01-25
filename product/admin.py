@@ -20,7 +20,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name','SKU','supplier','category','description','created','updated')
+    list_display = ('name','SKU','supplier','category','price','description','created','updated')
 
 
 @admin.register(Review)
