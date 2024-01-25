@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import viewsets
 
 from .models import (
     Supplier,
@@ -14,19 +14,20 @@ from .serializers import (
     ReviewSerializer,
 )
 
-class SupplierAPIView(generics.ListCreateAPIView):
+
+class SupplierAPIView(viewsets.ModelViewSet):
     queryset = Supplier.objects.all()
     serializer_class = SupplierSerializer
 
-class CategoryAPIView(generics.ListCreateAPIView):
+class CategoryAPIView(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
-class ProductAPIView(generics.ListCreateAPIView):
+class ProductAPIView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-class ReviewAPIView(generics.ListCreateAPIView):
+class ReviewAPIView(viewsets.ModelViewSet):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
