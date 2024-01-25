@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'product',
 
+    # will provides swagger
+    'drf_spectacular',
+
     # Needs to check permissions of users, superusers and unknown users
     'oauth2_provider',
 
@@ -141,9 +144,21 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 3,
+
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 # OAUTH2
 
 LOGIN_URL = '/admin/login/'
+
+#DRF_SPECTACULAR
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'ECOMMERCE API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
 
