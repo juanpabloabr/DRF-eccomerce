@@ -1,14 +1,16 @@
 
     #syntax=docker/dockerfile:1
 
-    FROM python:3.12.1-windowsservercore-ltsc2022
+    FROM python
 
     WORKDIR /app
 
-    COPY requirements.txt requirements.txt
+    COPY requirements.txt /app
 
-    RUN pip install requirements.txt
+    RUN pip install -r requirements.txt
 
     COPY . .
 
-    CMD ["py","manage.py","runserver","0.0.0.0:8000","--noreload"]
+    EXPOSE 8000
+
+    CMD ["py","manage.py","runserver","0.0.0.0:8000"]

@@ -31,7 +31,7 @@ class ProductAPIView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     
-    # Needs to chec'k if filter is working
+    # Needs to check if filter is working
     @action(
             methods=['get'],
             detail=False,
