@@ -31,8 +31,8 @@ class Category(models.Model):
 
 class Product(Base):
     name = models.CharField(max_length=255)
-    supplier = models.ForeignKey(Supplier,related_name='supplierProducts',on_delete=models.CASCADE)
-    category = models.ForeignKey(Category,related_name='categoryProducts',on_delete=models.CASCADE)
+    supplier = models.ForeignKey(Supplier,related_name='supplier_products',on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,related_name='category_products',on_delete=models.CASCADE)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=6,decimal_places=2,null=True)
     SKU = models.CharField(max_length=50, null=True)
@@ -61,5 +61,3 @@ class Review(Base):
     def __str__(self):
         return f'{self.user_name} review the product {self.product} with rating {self.rating}'
 
-
-    
