@@ -61,4 +61,5 @@ class Review(Base):
     def __str__(self):
         return f'{self.user_name} review the product {self.product} with rating {self.rating}'
 
+
     
