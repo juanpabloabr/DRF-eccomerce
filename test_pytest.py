@@ -102,8 +102,8 @@ class TestProducts:
             
             'name': 'SSD M2 Fast',
             'SKU': 'SSDM2FT',
-            'supplier': 'Samsung',
-            'category': 'Hardwares',
+            'supplier': 3,
+            'category': 1,
             'price': 299.90,
             'description': 'SSD M2 Fast',
 
@@ -120,21 +120,21 @@ class TestProducts:
             
             'name': 'SSD M2 Fast Gen 2',
             "SKU": 'SSDM2FTG2',
-            "supplier": 'Samsung',
-            "category": 'Hardwares',
+            "supplier": 3,
+            "category": 1,
             "price": 399.90,
             "description": 'SSD M2 Fast Gen 2',
 
         }
         
         # Needs to find a way to put an int number on url PK
-        response = requests.put(url=f'{self.url_base}8/', data=update)
+        response = requests.put(url=f'{self.url_base}7/', data=update)
 
         assert response.status_code == 200
         assert response.json()['name'] == update['name']
 
     def test_delete_product(self):
-        response = requests.delete(url=f'{self.url_base}8/')
+        response = requests.delete(url=f'{self.url_base}7/')
 
         assert response.status_code == 204 and len(response.text) == 0
 
