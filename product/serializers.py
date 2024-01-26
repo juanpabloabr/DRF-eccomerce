@@ -24,12 +24,19 @@ class SupplierSerializer(serializers.ModelSerializer):
 
 class CategorySerializer(serializers.ModelSerializer):
 
+    category_products = serializers.HyperlinkedRelatedField(
+        many = True,
+        read_only = True,
+        view_name = 'product-detail'
+    )
+
     class Meta:
 
         model = Category
         fields = (
             'id',
             'name',
+            'category_products',
             )
 
 
